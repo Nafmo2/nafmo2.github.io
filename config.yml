@@ -60,16 +60,18 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: "I'm Nafmo \U0001F44B"
-    subtitle: "This is Nafmo. I like a competitive programming"
+    subtitle: "This page is my activity log and self-introduction"
     imageUrl: "https://img.atcoder.jp/icons/a5e518c65db75eba1e8bd173f6083922.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: "my icon"
     buttons:
-      - name: Posts
-        url: posts
       - name: About
         url: about
+      - name: Works
+        url: works
+      # - name: Posts
+      #   url: posts
 
   # home-info mode
   homeInfoParams:
@@ -96,7 +98,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/Nafmo2/nafmo2.github.io/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -123,7 +125,12 @@ menu:
     - identifier: about
       name: About
       url: /about/
-      weight: 30
+      weight: 10
+    - identifier : works
+      name: Works
+      url: /works/
+      weight: 20
+     
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
