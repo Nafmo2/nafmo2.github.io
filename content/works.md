@@ -16,7 +16,7 @@ disableShare: true
   - GitLab CI/CDを用いたmarkdownからスライドPDFの自動化(Marp,Docker等を使用)
 - LTの開催
   - UEC20LT1,2，LTerry会 1st(個人開催)
-  - [Dentoo.lt](https://dentoo.lt) (運営)
+  - [Dentoo.LT](https://dentoo.lt) (運営)
 ### 高校生まで
 - AtCoder水色達成(1225)
 - Siv3D(C++)によるゲーム制作(制作感想記事)
