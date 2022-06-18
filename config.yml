@@ -1,5 +1,5 @@
-baseURL: "http://nafmo.github.io/"
-title: "もふもふのうみ"
+baseURL: "https://nafmo.dev/"
+title: "なふものおへや"
 paginate: 5
 theme: PaperMod
 
@@ -8,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+# googleAnalytics: ""
 
 minify:
   disableXML: true
@@ -16,7 +16,7 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: "もふもふのうみ"
+  title: "なふものおへや"
   description: " description"
   keywords: [Blog, Portfolio, PaperMod]
   author: Nafmo
@@ -59,8 +59,8 @@ params:
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    title: "Hi there \U0001F44B"
-    subtitle: "This is Nafmo. I want to be an engineer."
+    title: "I'm Nafmo \U0001F44B"
+    subtitle: "This is Nafmo. I like a competitive programming"
     imageUrl: "https://img.atcoder.jp/icons/a5e518c65db75eba1e8bd173f6083922.jpg"
     imageWidth: 120
     imageHeight: 120
@@ -68,8 +68,8 @@ params:
     buttons:
       - name: Posts
         url: posts
-      - name: Tags
-        url: tags
+      - name: About
+        url: about
 
   # home-info mode
   homeInfoParams:
@@ -112,16 +112,16 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
+    # - identifier: categories
+    #   name: categories
+    #   url: /categories/
+    #   weight: 10
+    # - identifier: tags
+    #   name: tags
+    #   url: /tags/
+    #   weight: 20
     - identifier: about
-      name: about
+      name: About
       url: /about/
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
