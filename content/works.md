@@ -13,6 +13,7 @@ disableShare: true
 - サークル用開発
   - GoogleFormに対する自動返信スクリプト(支払い方法に応じて場合分け有)
   - Slackに会計情報を流してスプレッドシートに記録する会計補助ソフト
+    - [個別記事有](/work/cashierappgas/)
   - GitLab CI/CDを用いたmarkdownからスライドPDFの自動化(Marp,Docker等を使用)
 - LTの開催
   - UEC20LT1,2，LTerry会 1st(個人開催)
