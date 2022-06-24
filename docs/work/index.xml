@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Works on なふものおへや</title>
+    <link>https://nafmo.dev/work/</link>
+    <description>Recent content in Works on なふものおへや</description>
+    <image>
+      <url>https://nafmo.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://nafmo.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 24 Jun 2022 22:29:46 +0900</lastBuildDate><atom:link href="https://nafmo.dev/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MMACashierCalculator</title>
+      <link>https://nafmo.dev/work/cashierappgas/</link>
+      <pubDate>Fri, 24 Jun 2022 22:29:46 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/work/cashierappgas/</guid>
+      <description>これは何？ 会計用部費計算アプリです．(ソースコード)
+サークルの会計役員が部費の計算を手でやっていた作業を自動化するソフト．ついでにスプレッドシートにも記載します．
+以下参考画像
+仕様 userid1と収めた金額を入力する．そこから部費何ヶ月分かを計算し，SpreadSheetに書き込んでくれる
+今月分からの支払う払込しか計算できない 部費500円が何ヶ月分かを計算できる 実装はGoogle Apps Scriptを使用 Slackにメンション付きで通知を飛ばせる 今後の課題 現在は誰でもアクセスできるので会計のみが使えるようにしたい GoogleAppScriptなのでGoogleAccountの絞り込みで解決しそう 会計しか使えないSpreadSheetから読んで更新するようにしたい 権限とそのSpreadSheet用に調整が必要 今月分より前は支払済と仮定しなくて済む これができないといつまで支払済かを入力させなきゃいけない 入部費3000円を引くボタンやスイッチなどの作成 デザイン誰かかっこよくしてくれ MMAは本名でなくuseridで部員を呼んだり管理したりする&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+    </item>
+    
+  </channel>
+</rss>
