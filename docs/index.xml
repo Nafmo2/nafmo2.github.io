@@ -5,8 +5,8 @@
     <link>https://nafmo.dev/</link>
     <description>Recent content on なふものおへや</description>
     <image>
-      <url>https://nafmo.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://nafmo.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://nafmo.dev/ogp.png</url>
+      <link>https://nafmo.dev/ogp.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 24 Jun 2022 22:29:46 +0900</lastBuildDate><atom:link href="https://nafmo.dev/index.xml" rel="self" type="application/rss+xml" />
@@ -16,11 +16,7 @@
       <pubDate>Fri, 24 Jun 2022 22:29:46 +0900</pubDate>
       
       <guid>https://nafmo.dev/work/cashierappgas/</guid>
-      <description>これは何？ 会計用部費計算アプリです．(ソースコード)
-サークルの会計役員が部費の計算を手でやっていた作業を自動化するソフト．ついでにスプレッドシートにも記載します．
-以下参考画像
-仕様 userid1と収めた金額を入力する．そこから部費何ヶ月分かを計算し，SpreadSheetに書き込んでくれる
-今月分からの支払う払込しか計算できない 部費500円が何ヶ月分かを計算できる 実装はGoogle Apps Scriptを使用 Slackにメンション付きで通知を飛ばせる 今後の課題 現在は誰でもアクセスできるので会計のみが使えるようにしたい GoogleAppScriptなのでGoogleAccountの絞り込みで解決しそう 会計しか使えないSpreadSheetから読んで更新するようにしたい 権限とそのSpreadSheet用に調整が必要 今月分より前は支払済と仮定しなくて済む これができないといつまで支払済かを入力させなきゃいけない 入部費3000円を引くボタンやスイッチなどの作成 デザイン誰かかっこよくしてくれ MMAは本名でなくuseridで部員を呼んだり管理したりする&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+      <description>これは何？ 会計用部費計算アプリです．(ソースコード) サークルの会計役員が部費の計算を手でやっていた作業を自動化するソフト．ついでにスプレッド</description>
     </item>
     
     <item>
@@ -29,9 +25,7 @@
       <pubDate>Sat, 18 Jun 2022 20:37:50 +0900</pubDate>
       
       <guid>https://nafmo.dev/works/</guid>
-      <description>Works&amp;amp;Achievement 作品とやってきたことをまとめます．
-随時加筆します．
-大学生 ICPC2020国内予選 チームMMAfresh 144位 サークル用開発 GoogleFormに対する自動返信スクリプト(支払い方法に応じて場合分け有) Slackに会計情報を流してスプレッドシートに記録する会計補助ソフト 個別記事有 GitLab CI/CDを用いたmarkdownからスライドPDFの自動化(Marp,Docker等を使用) LTの開催 UEC20LT1,2，LTerry会 1st(個人開催) Dentoo.LT (運営) 高校生まで AtCoder水色達成(1225) Siv3D(C++)によるゲーム制作(制作感想記事) LT主催 CombNaf CombNaf2 CombNaf3 (動画アーカイブ) LT,イベント運営協力 Gigacode 2019 Combmof </description>
+      <description>Works&amp;amp;Achievement 作品とやってきたことをまとめます． 随時加筆します． 大学生 ICPC2020国内予選 チームMMAfresh 144位 サークル用開発 GoogleF</description>
     </item>
     
     <item>
@@ -40,11 +34,7 @@
       <pubDate>Fri, 17 Jun 2022 19:41:03 +0900</pubDate>
       
       <guid>https://nafmo.dev/about/</guid>
-      <description>About me Nafmoという名前で活動している競技プログラマです．大学の勉強をしっかりやることを守っていたら技術に触れられなくなって厳しい思いをしています．
-好きなこととして，競技プログラミングはずっと高校生からやっています．最近は自動化のようなプログラマの開発環境を便利にしたり整えたりすることに興味があります．
-このサイトはHugoという静的ジェネレータで作成しました． 僕の活動履歴を残していこうと思います．ブログもそのうち作りたい．(旧はてブロはこちらから)
-Works&amp;amp;Achievement 一部個別ページで紹介するつもりです．関連リンクも貼りながら紹介しています． 長くなったので，こちらに分割しました
-Affiliation 電気通信大学 情報理工学域Ⅰ類 コンピュータサイエンスプログラム 電気通信大学MMA(サークル) Tech stack C++ (2014-) 競プロ用途がメイン Siv3D飲みにゲーム制作もちらほら GitLab CI/CD Dockerでシェルスクリプト走らせるだけの簡易版 Marpでmd to pdfの自動化を行った git,github,gitlab MMA部内にはセルフホスティングGitLabがある Python スクレイピングとデータサイエンスをかじった程度 Google App Script Slackに通知を流すスクリプトやGoogleFormへの自動配信など 競技プログラミング AtCoder Highest：1225(2018)</description>
+      <description>About me Nafmoという名前で活動している競技プログラマです．大学の勉強をしっかりやることを守っていたら技術に触れられなくなって厳しい思いをして</description>
     </item>
     
     
