@@ -3,6 +3,8 @@ title: "なふものおへや"
 paginate: 5
 theme: PaperMod
 
+hasCJKLanguage: true
+
 publishDir : "docs" # github pages
 
 enableRobotsTXT: true
