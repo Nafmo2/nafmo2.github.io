@@ -1,6 +1,6 @@
 ---
 title: "企業の本気を見た －技育博参加記－"
-date: 2022-06-29T00:09:41+09:00
+date: 2022-07-02T00:09:41+09:00
 description: "技育博の参加記/思い出記録"
 images:  
   - ./posts/img/geekhaku_OGP.png
