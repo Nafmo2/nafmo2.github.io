@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nafmo.dev/posts/</loc>
+    <lastmod>2022-06-29T00:09:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nafmo.dev/</loc>
+    <lastmod>2022-06-29T00:09:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nafmo.dev/posts/geekhaku2022/</loc>
+    <lastmod>2022-06-29T00:09:41+09:00</lastmod>
+  </url><url>
     <loc>https://nafmo.dev/work/cashierappgas/</loc>
     <lastmod>2022-06-24T22:29:46+09:00</lastmod>
   </url><url>
     <loc>https://nafmo.dev/work/</loc>
-    <lastmod>2022-06-24T22:29:46+09:00</lastmod>
-  </url><url>
-    <loc>https://nafmo.dev/</loc>
     <lastmod>2022-06-24T22:29:46+09:00</lastmod>
   </url><url>
     <loc>https://nafmo.dev/works/</loc>
