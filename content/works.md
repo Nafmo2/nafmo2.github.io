@@ -20,7 +20,9 @@ disableShare: true
   - [Dentoo.LT](https://dentoo.lt) (運営)
 ### 高校生まで
 - AtCoder水色達成(1225)
-- Siv3D(C++)によるゲーム制作(制作感想記事)
+- Siv3D(C++)によるゲーム制作
+  - Thread Through ([制作感想記事](https://nafmo.hatenablog.jp/entry/AdC17_Siv3D))
+    - 5日間で学祭に出せるゲーム作ろうぜがコンセプト
 - LT主催
   - [CombNaf](https://combnaf.connpass.com/)
   - CombNaf2
