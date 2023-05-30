@@ -18,6 +18,11 @@ disableShare: true
 - LTの開催
   - UEC20LT1,2，LTerry会 1st(個人開催)
   - [Dentoo.LT](https://dentoo.lt) (運営)
+- プログラミングコンテストの開催
+  - [MMA Contest 015 (on yukicoder)](https://yukicoder.me/contests/444) 
+    - [イベント全体統括と運営](https://mma-contest.connpass.com/event/279816)
+    - A,B,H 問題作問
+    - 運営ブログ(後ほど更新)
 ### 高校生まで
 - AtCoder水色達成(1225)
 - Siv3D(C++)によるゲーム制作
