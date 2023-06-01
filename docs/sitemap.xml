@@ -23,12 +23,23 @@
     <loc>https://nafmo.dev/about/</loc>
     <lastmod>2022-06-17T19:41:03+09:00</lastmod>
   </url><url>
-    <loc>https://nafmo.dev/archives/</loc>
-  </url><url>
     <loc>https://nafmo.dev/categories/</loc>
+    <lastmod>2022-06-01T23:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://nafmo.dev/search/</loc>
+    <loc>https://nafmo.dev/categories/event/</loc>
+    <lastmod>2022-06-01T23:00:00+09:00</lastmod>
   </url><url>
     <loc>https://nafmo.dev/tags/</loc>
+    <lastmod>2022-06-01T23:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://nafmo.dev/tags/%E7%AB%B6%E3%83%97%E3%83%AD/</loc>
+    <lastmod>2022-06-01T23:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://nafmo.dev/posts/joi-event/</loc>
+    <lastmod>2022-06-01T23:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://nafmo.dev/archives/</loc>
+  </url><url>
+    <loc>https://nafmo.dev/search/</loc>
   </url>
 </urlset>

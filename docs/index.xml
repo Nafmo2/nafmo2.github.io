@@ -5,6 +5,7 @@
     <link>https://nafmo.dev/</link>
     <description>Recent content on なふものおへや</description>
     <image>
+      <title>なふものおへや</title>
       <url>https://nafmo.dev/ogp.png</url>
       <link>https://nafmo.dev/ogp.png</link>
     </image>
@@ -44,6 +45,15 @@
       
       <guid>https://nafmo.dev/about/</guid>
       <description>About me Nafmoという名前で活動している競技プログラマです．大学の勉強をしっかりやることを守っていたら技術に触れられなくなって厳しい思いをして</description>
+    </item>
+    
+    <item>
+      <title>自分のレートは競プロオンサイトの参加をためらう理由にならない話</title>
+      <link>https://nafmo.dev/posts/joi-event/</link>
+      <pubDate>Wed, 01 Jun 2022 23:00:00 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/posts/joi-event/</guid>
+      <description>競プロオンサイトは競技だけが全てではないという話</description>
     </item>
     
     

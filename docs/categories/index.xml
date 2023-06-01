@@ -5,9 +5,20 @@
     <link>https://nafmo.dev/categories/</link>
     <description>Recent content in Categories on なふものおへや</description>
     <image>
+      <title>なふものおへや</title>
       <url>https://nafmo.dev/ogp.png</url>
       <link>https://nafmo.dev/ogp.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://nafmo.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Jun 2022 23:00:00 +0900</lastBuildDate><atom:link href="https://nafmo.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event</title>
+      <link>https://nafmo.dev/categories/event/</link>
+      <pubDate>Wed, 01 Jun 2022 23:00:00 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/categories/event/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
