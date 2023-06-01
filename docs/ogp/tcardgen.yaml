@@ -3,7 +3,7 @@ title:
     px: 150
     pY: 210
   fgHexColor: "#333333"
-  fontSize: 65
+  fontSize: 60
   fontStyle: Bold
 info:
   start:

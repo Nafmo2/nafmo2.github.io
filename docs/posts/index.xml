@@ -10,7 +10,16 @@
       <link>https://nafmo.dev/ogp.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Jul 2022 00:09:41 +0900</lastBuildDate><atom:link href="https://nafmo.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2023 23:00:00 +0900</lastBuildDate><atom:link href="https://nafmo.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自分のレートは競プロオンサイトの参加をためらう理由にならない話</title>
+      <link>https://nafmo.dev/posts/joi-event/</link>
+      <pubDate>Thu, 01 Jun 2023 23:00:00 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/posts/joi-event/</guid>
+      <description>競プロオンサイトは競技だけが全てではないという話</description>
+    </item>
+    
     <item>
       <title>企業の本気を見た －技育博参加記－</title>
       <link>https://nafmo.dev/posts/geekhaku2022/</link>
@@ -18,15 +27,6 @@
       
       <guid>https://nafmo.dev/posts/geekhaku2022/</guid>
       <description>技育博の参加記/思い出記録</description>
-    </item>
-    
-    <item>
-      <title>自分のレートは競プロオンサイトの参加をためらう理由にならない話</title>
-      <link>https://nafmo.dev/posts/joi-event/</link>
-      <pubDate>Wed, 01 Jun 2022 23:00:00 +0900</pubDate>
-      
-      <guid>https://nafmo.dev/posts/joi-event/</guid>
-      <description>競プロオンサイトは競技だけが全てではないという話</description>
     </item>
     
   </channel>
