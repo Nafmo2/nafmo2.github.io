@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Works on なふものおへや</title>
+    <link>https://nafmo.dev/work/</link>
+    <description>Recent content in Works on なふものおへや</description>
+    <image>
+      <title>なふものおへや</title>
+      <url>https://nafmo.dev/ogp.png</url>
+      <link>https://nafmo.dev/ogp.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 24 Jun 2022 22:29:46 +0900</lastBuildDate><atom:link href="https://nafmo.dev/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MMACashierCalculator</title>
+      <link>https://nafmo.dev/work/cashierappgas/</link>
+      <pubDate>Fri, 24 Jun 2022 22:29:46 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/work/cashierappgas/</guid>
+      <description>これは何？ 会計用部費計算アプリです．(ソースコード) サークルの会計役員が部費の計算を手でやっていた作業を自動化するソフト．ついでにスプレッド</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>なふものおへや</title>
+    <link>https://nafmo.dev/</link>
+    <description>Recent content on なふものおへや</description>
+    <image>
+      <title>なふものおへや</title>
+      <url>https://nafmo.dev/ogp.png</url>
+      <link>https://nafmo.dev/ogp.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jun 2023 23:00:00 +0900</lastBuildDate><atom:link href="https://nafmo.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自分のレートは競プロオンサイトの参加をためらう理由にならない話</title>
+      <link>https://nafmo.dev/posts/joi-event/</link>
+      <pubDate>Thu, 01 Jun 2023 23:00:00 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/posts/joi-event/</guid>
+      <description>競プロオンサイトは競技だけが全てではないという話</description>
+    </item>
+    
+    <item>
+      <title>企業の本気を見た －技育博参加記－</title>
+      <link>https://nafmo.dev/posts/geekhaku2022/</link>
+      <pubDate>Sat, 02 Jul 2022 00:09:41 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/posts/geekhaku2022/</guid>
+      <description>技育博の参加記/思い出記録</description>
+    </item>
+    
+    <item>
+      <title>MMACashierCalculator</title>
+      <link>https://nafmo.dev/work/cashierappgas/</link>
+      <pubDate>Fri, 24 Jun 2022 22:29:46 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/work/cashierappgas/</guid>
+      <description>これは何？ 会計用部費計算アプリです．(ソースコード) サークルの会計役員が部費の計算を手でやっていた作業を自動化するソフト．ついでにスプレッド</description>
+    </item>
+    
+    <item>
+      <title>Works</title>
+      <link>https://nafmo.dev/works/</link>
+      <pubDate>Sat, 18 Jun 2022 20:37:50 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/works/</guid>
+      <description>Works&amp;amp;Achievement 作品とやってきたことをまとめます． 随時加筆します． 大学生 ICPC2020国内予選 チームMMAfresh 144位 サークル用開発 GoogleF</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://nafmo.dev/about/</link>
+      <pubDate>Fri, 17 Jun 2022 19:41:03 +0900</pubDate>
+      
+      <guid>https://nafmo.dev/about/</guid>
+      <description>About me Nafmoという名前で活動している競技プログラマです．大学の勉強をしっかりやることを守っていたら技術に触れられなくなって厳しい思いをして</description>
+    </item>
+    
+    
+    
+  </channel>
+</rss>

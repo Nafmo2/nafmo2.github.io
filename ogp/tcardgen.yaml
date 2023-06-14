@@ -1,0 +1,20 @@
+title:
+  start:
+    px: 150
+    pY: 210
+  fgHexColor: "#333333"
+  fontSize: 60
+  fontStyle: Bold
+info:
+  start:
+      pX: 233
+      pY: 527
+  fgHexColor: "#333333"
+tags:
+  start:
+      pX: 1110
+      pY: 527
+  fgHexColor: "#333333"
+  bgHexColor: "#ffc266"
+  fontSize: 30
+  boxSpacing: 10
