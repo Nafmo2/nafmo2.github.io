@@ -139,6 +139,10 @@ menu:
       name: Posts
       url: /posts/
       weight: 30
+    - identifier: Slides
+      name: Slides
+      url: /slides/
+      weight: 40
     
      
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
