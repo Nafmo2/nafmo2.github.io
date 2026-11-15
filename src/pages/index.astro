@@ -1,16 +1,90 @@
 ---
+import { Image } from "astro:assets";
+import melicon from "../assets/melicon.jpg";
+import Icon from "../components/Icon.astro";
+import PostFeed from "../components/PostFeed.astro";
+import { getPosts } from "../data/posts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const latestPosts = (await getPosts()).slice(0, 8);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<section class="profile" aria-label="プロフィール">
+		<Image
+			class="avatar"
+			src={melicon}
+			alt=""
+			width={112}
+			height={112}
+			widths={[112, 224]}
+			sizes="112px"
+			format="webp"
+			layout="fixed"
+			priority
+		/>
+		<div class="profile-body">
+			<h1 class="profile-name">Nafmo</h1>
+			<p class="profile-tagline">ML Engineer</p>
+			<ul class="profile-links" aria-label="外部リンク">
+				<li>
+					<a
+						href="https://github.com/Nafmo2"
+						target="_blank"
+						rel="noopener noreferrer"
+						>GitHub<span class="ext" aria-hidden="true">↗</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://x.com/Nafmo2"
+						target="_blank"
+						rel="noopener noreferrer"
+						>X<span class="ext" aria-hidden="true">↗</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://zenn.dev/nafmo2"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Zenn<span class="ext" aria-hidden="true">↗</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://qiita.com/Nafmo2"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Qiita<span class="ext" aria-hidden="true">↗</span></a
+					>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section aria-labelledby="about-heading">
+		<h2 id="about-heading">About</h2>
+		<div class="summary">
+			<p>
+				Nafmo Hub は、各種ポータルの記事の集約を目指して作成しました。
+				ついでに自分自身の成果物や技術以外のポエム/考えなどもまとめておいておくポータルにできたらと思っています。
+			</p>
+			<a class="more-link strong" href="/about/">
+				About を読む<Icon name="arrow-right" class="arr" />
+			</a>
+		</div>
+	</section>
+
+	<section id="posts" aria-labelledby="posts-heading">
+		<h2 id="posts-heading">Posts</h2>
+		<PostFeed
+			posts={latestPosts}
+			allLabel="最新の記事"
+			emptyText="まだ記事がありません。"
+		/>
+		<a class="more-link weak" href="/posts/">
+			記事一覧へ<Icon name="arrow-right" class="arr" />
+		</a>
+	</section>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import type { Post } from "../data/posts";
+import PostTags from "./PostTags.astro";
+
+interface Props {
+	posts: Post[];
+}
+
+const { posts } = Astro.props;
+
+// タグは出どころ（自サイト / 外部）をキーに含めて、同名タグを別扱いにする
+const tagKey = (post: Post, tag: string) =>
+	`${post.source === "site" ? "site" : "ext"}:${tag}`;
+---
+
+<ul class="post-list">
+	{
+		posts.map((post) => (
+			<li
+				class="post"
+				data-source={post.source}
+				data-tags={JSON.stringify(post.tags.map((tag) => tagKey(post, tag)))}
+				data-ym={post.date.slice(0, 7)}
+				data-search={[post.title, post.excerpt ?? "", ...post.tags]
+					.join(" ")
+					.toLowerCase()}
+			>
+				<time datetime={post.date}>{post.displayDate}</time>
+				<div class="post-body">
+					<a class="post-title" href={post.url}>
+						{post.status && (
+							<span class="post-status-prefix">
+								{post.status === "draft"
+									? "[Draft] "
+									: "[投稿予約] "}
+							</span>
+						)}
+						{post.title}
+					</a>
+					{post.excerpt && <p class="post-excerpt">{post.excerpt}</p>}
+					<PostTags tags={post.tags} source={post.source} />
+				</div>
+				<span class="post-source">{post.sourceLabel}</span>
+			</li>
+		))
+	}
+</ul>

@@ -13,6 +13,12 @@ yarn-error.log*
 pnpm-debug.log*
 
 
+# local-only files (machine-specific settings, scratch notes)
+*.local
+*.local.*
+local/
+.local/
+
 # environment variables
 .env
 .env.production

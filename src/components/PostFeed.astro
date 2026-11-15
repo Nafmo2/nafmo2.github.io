@@ -1,0 +1,491 @@
+---
+import Icon from "./Icon.astro";
+import PostList from "./PostList.astro";
+import { feedSources } from "../data/feed-sources";
+import type { Post } from "../data/posts";
+
+interface Props {
+	posts: Post[];
+	/** 件数表示の見出し（例: すべての記事 / 最新の記事） */
+	allLabel?: string;
+	/** 記事が0件のときの文言 */
+	emptyText?: string;
+	/** タグ・媒体・作成年月・キーワードの絞り込みを表示する（記事一覧ページ用） */
+	detailedFilters?: boolean;
+}
+
+const {
+	posts,
+	allLabel = "すべての記事",
+	emptyText = "表示できる記事がありません。",
+	detailedFilters = false,
+} = Astro.props;
+
+// 自サイト（Hub）を先頭にし、外部フィードは設定順に並べる
+const sourceOrder: Array<{ id: string; label: string }> = [
+	{ id: "site", label: "Hub" },
+	...feedSources.map((source) => ({ id: source.id, label: source.label })),
+];
+const sources = sourceOrder.filter((source) =>
+	posts.some((post) => post.source === source.id),
+);
+for (const post of posts) {
+	if (!sources.some((source) => source.id === post.source)) {
+		sources.push({ id: post.source, label: post.sourceLabel });
+	}
+}
+
+const labels = Object.fromEntries(
+	sources.map((source) => [source.id, source.label]),
+);
+
+const sortTags = (tags: string[]) =>
+	tags.sort((a, b) => a.localeCompare(b, "ja"));
+
+const siteTagOptions = detailedFilters
+	? sortTags(
+			Array.from(
+				new Set(
+					posts
+						.filter((post) => post.source === "site")
+						.flatMap((post) => post.tags),
+				),
+			),
+		)
+	: [];
+const externalTagOptions = detailedFilters
+	? sortTags(
+			Array.from(
+				new Set(
+					posts
+						.filter((post) => post.source !== "site")
+						.flatMap((post) => post.tags),
+				),
+			),
+		)
+	: [];
+
+// 年月アーカイブ（年は新しい順、年の中の月は1月から12月の順）
+interface ArchiveYear {
+	year: string;
+	months: Array<{ ym: string; month: number; count: number }>;
+}
+const monthCounts = new Map<string, number>();
+for (const post of posts) {
+	const ym = post.date.slice(0, 7);
+	monthCounts.set(ym, (monthCounts.get(ym) ?? 0) + 1);
+}
+const archive: ArchiveYear[] = [];
+for (const [ym, count] of Array.from(monthCounts.entries()).sort((a, b) =>
+	b[0].localeCompare(a[0]),
+)) {
+	const year = ym.slice(0, 4);
+	let group = archive.find((item) => item.year === year);
+	if (!group) {
+		group = { year, months: [] };
+		archive.push(group);
+	}
+	group.months.push({ ym, month: Number(ym.slice(5, 7)), count });
+}
+for (const group of archive) {
+	group.months.sort((a, b) => a.month - b.month);
+}
+archive.sort((a, b) => b.year.localeCompare(a.year));
+---
+
+{
+	posts.length > 0 ? (
+		<>
+			{detailedFilters ? (
+				<details class="filter-details">
+					<summary class="filter-summary" aria-label="絞り込み">
+						<span class="filter-summary-label">
+							<Icon name="filter" class="filter-icon" />
+							<span
+								class="filter-indicator"
+								data-filter-indicator
+								hidden
+							/>
+							<span class="post-count" id="post-count" aria-live="polite">
+								全{posts.length}件中{posts.length}件
+							</span>
+						</span>
+						<Icon name="chevron" class="disclosure-icon" />
+					</summary>
+					<div class="post-filter-panel">
+						<div class="filter-group filter-group-tags">
+							<span class="filter-label">タグ</span>
+							{siteTagOptions.length > 0 && (
+								<div class="filter-subgroup">
+									<span class="filter-subhead">Hubのタグ</span>
+									<div
+										class="filter-chips"
+										role="group"
+										aria-label="Hubのタグで絞り込む"
+									>
+										{siteTagOptions.map((tag) => (
+											<button
+												type="button"
+												class="filter-btn filter-tag"
+												data-tag={`site:${tag}`}
+												aria-pressed="false"
+											>
+												<span
+													class="post-tag-marker"
+													aria-hidden="true"
+												/>
+												{tag}
+											</button>
+										))}
+									</div>
+								</div>
+							)}
+							{externalTagOptions.length > 0 && (
+								<div class="filter-subgroup">
+									<span class="filter-subhead">外部のタグ</span>
+									<div
+										class="filter-chips"
+										role="group"
+										aria-label="外部のタグで絞り込む"
+									>
+										{externalTagOptions.map((tag) => (
+											<button
+												type="button"
+												class="filter-btn filter-tag"
+												data-tag={`ext:${tag}`}
+												aria-pressed="false"
+											>
+												<span
+													class="post-tag-marker post-tag-marker-external"
+													aria-hidden="true"
+												/>
+												{tag}
+											</button>
+										))}
+									</div>
+								</div>
+							)}
+							{siteTagOptions.length === 0 &&
+								externalTagOptions.length === 0 && (
+									<span class="filter-none">
+										タグ付きの記事はありません
+									</span>
+								)}
+						</div>
+						<div class="filter-group filter-group-source">
+							<span class="filter-label">媒体</span>
+							<div
+								class="filter-chips"
+								role="group"
+								aria-label="媒体で絞り込む"
+							>
+								{sources.map((source) => (
+									<button
+										type="button"
+										class="filter-btn filter-choice"
+										data-source-filter={source.id}
+										aria-pressed="false"
+									>
+										{source.label}
+									</button>
+								))}
+							</div>
+						</div>
+						<div class="filter-group filter-group-month">
+							<span class="filter-label">作成年月</span>
+							<div class="filter-archive">
+								{archive.map((year) => (
+									<details class="archive-year">
+										<summary class="archive-summary">
+											<Icon
+												name="chevron"
+												class="disclosure-icon"
+											/>
+											{year.year}年
+										</summary>
+										<div class="archive-months">
+											{year.months.map((month) => (
+												<button
+													type="button"
+													class="filter-btn filter-choice filter-month"
+													data-month={month.ym}
+													aria-pressed="false"
+												>
+													{month.month}月
+													<span class="filter-month-count">
+														（{month.count}）
+													</span>
+												</button>
+											))}
+										</div>
+									</details>
+								))}
+							</div>
+						</div>
+						<div class="filter-group filter-group-keyword">
+							<label class="filter-label" for="filter-keyword">
+								キーワード
+							</label>
+							<input
+								class="filter-input"
+								id="filter-keyword"
+								type="search"
+								placeholder="タイトル・概要・タグ"
+								autocomplete="off"
+							/>
+						</div>
+						<button
+							type="button"
+							class="filter-reset"
+							data-filter-reset
+							hidden
+						>
+							絞り込みを解除
+						</button>
+					</div>
+				</details>
+			) : (
+				sources.length > 1 && (
+					<div class="post-filters" role="group" aria-label="出典で絞り込む">
+						<button
+							type="button"
+							class="filter-btn"
+							data-filter="all"
+							aria-pressed="true"
+						>
+							すべて
+						</button>
+						{sources.map((source) => (
+							<button
+								type="button"
+								class="filter-btn"
+								data-filter={source.id}
+								aria-pressed="false"
+							>
+								{source.label}
+							</button>
+						))}
+					</div>
+				)
+			)}
+			{!detailedFilters && (
+				<p class="post-count" id="post-count" aria-live="polite">
+					{`${allLabel} — ${posts.length} 件`}
+				</p>
+			)}
+			<PostList posts={posts} />
+			<p class="post-empty" id="post-empty" hidden>
+				{detailedFilters
+					? "条件に合う記事がありません。"
+					: "この出典の記事はまだありません。"}
+			</p>
+			{detailedFilters ? (
+				<script is:inline>
+					(function () {
+						var tagButtons = Array.prototype.slice.call(
+							document.querySelectorAll("[data-tag]"),
+						);
+						var sourceButtons = Array.prototype.slice.call(
+							document.querySelectorAll("[data-source-filter]"),
+						);
+						var monthButtons = Array.prototype.slice.call(
+							document.querySelectorAll("[data-month]"),
+						);
+						var keywordInput = document.getElementById("filter-keyword");
+						var resetButton = document.querySelector("[data-filter-reset]");
+						var indicator = document.querySelector("[data-filter-indicator]");
+						var items = Array.prototype.slice.call(
+							document.querySelectorAll(".post-list .post"),
+						);
+						var countEl = document.getElementById("post-count");
+						var emptyEl = document.getElementById("post-empty");
+						if (
+							!items.length ||
+							!keywordInput ||
+							!resetButton ||
+							!indicator ||
+							!countEl ||
+							!emptyEl
+						)
+							return;
+
+						var selectedTags = new Set();
+						var selectedSources = new Set();
+						var selectedMonths = new Set();
+
+						function apply() {
+							var keyword = keywordInput.value.trim().toLowerCase();
+							var shown = 0;
+
+							items.forEach(function (item) {
+								var tags = [];
+								try {
+									tags = JSON.parse(
+										item.getAttribute("data-tags") || "[]",
+									);
+								} catch (error) {}
+								var tagOk =
+									selectedTags.size === 0 ||
+									tags.some(function (tag) {
+										return selectedTags.has(tag);
+									});
+								var sourceOk =
+									selectedSources.size === 0 ||
+									selectedSources.has(
+										item.getAttribute("data-source"),
+									);
+								var monthOk =
+									selectedMonths.size === 0 ||
+									selectedMonths.has(item.getAttribute("data-ym"));
+								var keywordOk =
+									!keyword ||
+									(item.getAttribute("data-search") || "").indexOf(
+										keyword,
+									) !== -1;
+								var ok = tagOk && sourceOk && monthOk && keywordOk;
+								item.hidden = !ok;
+								if (ok) shown += 1;
+							});
+
+							tagButtons.forEach(function (button) {
+								button.setAttribute(
+									"aria-pressed",
+									selectedTags.has(button.getAttribute("data-tag"))
+										? "true"
+										: "false",
+								);
+							});
+							sourceButtons.forEach(function (button) {
+								button.setAttribute(
+									"aria-pressed",
+									selectedSources.has(
+										button.getAttribute("data-source-filter"),
+									)
+										? "true"
+										: "false",
+								);
+							});
+							monthButtons.forEach(function (button) {
+								button.setAttribute(
+									"aria-pressed",
+									selectedMonths.has(
+										button.getAttribute("data-month"),
+									)
+										? "true"
+										: "false",
+								);
+							});
+
+							var activeCount =
+								selectedTags.size +
+								selectedSources.size +
+								selectedMonths.size +
+								(keyword ? 1 : 0);
+							indicator.textContent =
+								activeCount > 0 ? "（" + activeCount + "）" : "";
+							indicator.hidden = activeCount === 0;
+							resetButton.hidden = activeCount === 0;
+
+							countEl.textContent =
+								"全" + items.length + "件中" + shown + "件";
+							emptyEl.hidden = shown !== 0;
+						}
+
+						tagButtons.forEach(function (button) {
+							button.addEventListener("click", function () {
+								var tag = button.getAttribute("data-tag");
+								if (selectedTags.has(tag)) {
+									selectedTags.delete(tag);
+								} else {
+									selectedTags.add(tag);
+								}
+								apply();
+							});
+						});
+
+						sourceButtons.forEach(function (button) {
+							button.addEventListener("click", function () {
+								var source = button.getAttribute("data-source-filter");
+								if (selectedSources.has(source)) {
+									selectedSources.delete(source);
+								} else {
+									selectedSources.add(source);
+								}
+								apply();
+							});
+						});
+
+						monthButtons.forEach(function (button) {
+							button.addEventListener("click", function () {
+								var month = button.getAttribute("data-month");
+								if (selectedMonths.has(month)) {
+									selectedMonths.delete(month);
+								} else {
+									selectedMonths.add(month);
+								}
+								apply();
+							});
+						});
+
+						keywordInput.addEventListener("input", apply);
+						resetButton.addEventListener("click", function () {
+							selectedTags.clear();
+							selectedSources.clear();
+							selectedMonths.clear();
+							keywordInput.value = "";
+							apply();
+						});
+
+						apply();
+					})();
+				</script>
+			) : (
+				<script is:inline define:vars={{ labels, allLabel }}>
+					(function () {
+						var buttons = Array.prototype.slice.call(
+							document.querySelectorAll(".filter-btn"),
+						);
+						var items = Array.prototype.slice.call(
+							document.querySelectorAll(".post-list .post"),
+						);
+						var countEl = document.getElementById("post-count");
+						var emptyEl = document.getElementById("post-empty");
+						if (!items.length || !countEl || !emptyEl) return;
+
+						var names = Object.assign({ all: allLabel }, labels);
+
+						function apply(filter) {
+							var shown = 0;
+							items.forEach(function (item) {
+								var ok =
+									filter === "all" ||
+									item.getAttribute("data-source") === filter;
+								item.hidden = !ok;
+								if (ok) shown += 1;
+							});
+							buttons.forEach(function (button) {
+								button.setAttribute(
+									"aria-pressed",
+									button.getAttribute("data-filter") === filter
+										? "true"
+										: "false",
+								);
+							});
+							countEl.textContent =
+								(names[filter] || filter) + " — " + shown + " 件";
+							emptyEl.hidden = shown !== 0;
+						}
+
+						buttons.forEach(function (button) {
+							button.addEventListener("click", function () {
+								apply(button.getAttribute("data-filter"));
+							});
+						});
+					})();
+				</script>
+			)}
+		</>
+	) : (
+		<p class="post-empty">{emptyText}</p>
+	)
+}

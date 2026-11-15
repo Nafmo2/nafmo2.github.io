@@ -1,0 +1,28 @@
+---
+interface Props {
+	tags: string[];
+	source: string;
+}
+
+const { tags, source } = Astro.props;
+const external = source !== "site";
+---
+
+{
+	tags.length > 0 && (
+		<ul class="post-tags" aria-label="タグ">
+			{tags.map((tag) => (
+				<li>
+					<span
+						class:list={[
+							"post-tag-marker",
+							{ "post-tag-marker-external": external },
+						]}
+						aria-hidden="true"
+					/>
+					<span>{tag}</span>
+				</li>
+			))}
+		</ul>
+	)
+}

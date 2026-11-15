@@ -1,0 +1,13 @@
+---
+import PostFeed from "../components/PostFeed.astro";
+import { getPosts } from "../data/posts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = await getPosts();
+---
+
+<BaseLayout title="Posts">
+	<h1>Posts</h1>
+
+	<PostFeed posts={posts} emptyText="表示できる記事がありません。" detailedFilters />
+</BaseLayout>

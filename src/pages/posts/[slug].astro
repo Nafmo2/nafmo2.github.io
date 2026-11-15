@@ -1,0 +1,63 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import { formatDate } from "../../data/posts";
+import { getVisibleSitePosts, sitePostStatus } from "../../data/site-posts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostTags from "../../components/PostTags.astro";
+
+interface Props {
+	post: CollectionEntry<"posts">;
+}
+
+export async function getStaticPaths() {
+	const posts = await getVisibleSitePosts();
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const published = formatDate(post.data.pubDate);
+const updated = post.data.updatedDate
+	? formatDate(post.data.updatedDate)
+	: undefined;
+const status = import.meta.env.DEV ? sitePostStatus(post) : undefined;
+---
+
+<BaseLayout
+	title={post.data.title}
+	description={post.data.summary}
+	image={`/og/${post.id}.png`}
+	type="article"
+>
+	<article>
+		<header class="site-post-header">
+			<h1 class="site-post-title">
+				{status && (
+					<span class="post-status-prefix">
+						{status === "draft" ? "[Draft] " : "[投稿予約] "}
+					</span>
+				)}
+				{post.data.title}
+			</h1>
+			<p class="site-post-meta">
+				<time datetime={post.data.pubDate.toISOString()}
+					>{published.displayDate}</time
+				>
+				{updated && (
+					<span class="site-post-updated">
+						更新: <time datetime={post.data.updatedDate?.toISOString()}
+							>{updated.displayDate}</time
+						>
+					</span>
+				)}
+			</p>
+			<PostTags tags={post.data.tags} source="site" />
+		</header>
+		<div class="site-post-body">
+			<Content />
+		</div>
+	</article>
+</BaseLayout>
