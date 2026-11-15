@@ -19,7 +19,7 @@ Nafmo のプロフィールと、Hatena / Zenn / Qiita / 自サイトの記事�
 
 ## 開発
 
-Node.js 22.23.4 以上が必要です。
+Node.js 24 以上が必要です。
 
 ```sh
 npm install
@@ -30,6 +30,10 @@ npm run preview  # ビルド結果をローカルで確認
 ```
 
 ローカル固有の設定・メモ・上書きファイルは、`*.local.*`（例: `settings.local.json`）または `local/` ディレクトリに置いてください。Git 管理対象外になります。
+
+## デプロイ
+
+`main` への push（ビルドに影響するファイルのみ）、または毎日 00:00 JST の定期実行で GitHub Pages にデプロイします。Node.js のバージョンは `.node-version` で管理しています。
 
 ## 記事を書く
 
@@ -54,6 +58,7 @@ npm run new -- my-first-post
 | `src/data/feed-sources.ts` | 集約する外部フィード（Hatena / Zenn / Qiita） |
 | `src/data/excerpts.json` | 一覧に表示する要約の上書きデータ |
 | `src/styles/global.css` | サイト全体のスタイル。`:root` に色・フォント・本文幅などの共通値 |
+| `.node-version` | 開発・CI で使う Node.js のメジャーバージョン |
 
 外部フィードはビルド時に取得します。取得に失敗したフィードはスキップされ、ビルドは継続します。
 
